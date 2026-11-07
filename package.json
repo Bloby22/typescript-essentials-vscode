@@ -1,0 +1,147 @@
+{
+  "name": "typescript-essentials",
+  "displayName": "TypeScript Essentials",
+  "description": "Modern TypeScript and JavaScript development essentials for Visual Studio Code.",
+  "version": "0.1.0",
+  "publisher": "BlobyCZ",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bloby22/typescript-essentials.git"
+  },
+  "categories": [
+    "Programming Languages",
+    "Themes",
+    "Other"
+  ],
+  "keywords": [
+    "typescript",
+    "javascript",
+    "developer tools",
+    "editor settings",
+    "syntax highlighting",
+    "dark theme",
+    "productivity"
+  ],
+  "icon": "assets/icon.png",
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:typescriptEssentials.applySettings",
+    "onCommand:typescriptEssentials.applyTypeScriptSettings",
+    "onCommand:typescriptEssentials.resetSettings",
+    "onCommand:typescriptEssentials.showSettings"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "typescriptEssentials.applySettings",
+        "title": "Apply Recommended Settings",
+        "category": "TypeScript Essentials"
+      },
+      {
+        "command": "typescriptEssentials.applyTypeScriptSettings",
+        "title": "Apply TypeScript Settings",
+        "category": "TypeScript Essentials"
+      },
+      {
+        "command": "typescriptEssentials.resetSettings",
+        "title": "Restore Previous Settings",
+        "category": "TypeScript Essentials"
+      },
+      {
+        "command": "typescriptEssentials.showSettings",
+        "title": "Preview Available Settings",
+        "category": "TypeScript Essentials"
+      }
+    ],
+    "configuration": {
+      "title": "TypeScript Essentials",
+      "properties": {
+        "typescriptEssentials.autoApply": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically apply recommended settings when the extension activates."
+        },
+        "typescriptEssentials.enableTypeScript": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable TypeScript-related editor settings."
+        },
+        "typescriptEssentials.enableJavaScript": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable JavaScript-related editor settings."
+        },
+        "typescriptEssentials.enableFormatting": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable recommended formatting settings."
+        },
+        "typescriptEssentials.enableAppearance": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable modern editor appearance settings."
+        },
+        "typescriptEssentials.enableInlayHints": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable TypeScript and JavaScript inlay hints."
+        },
+        "typescriptEssentials.useMaterialIcons": {
+          "type": "boolean",
+          "default": true,
+          "description": "Prefer Material Icon Theme for file and folder icons."
+        }
+      }
+    },
+    "themes": [
+      {
+        "label": "TypeScript Essentials Dark",
+        "uiTheme": "vs-dark",
+        "path": "./theme/theme-dark.json"
+      }
+    ],
+    "grammars": [
+      {
+        "scopeName": "typescript-essentials.annotations",
+        "path": "./syntax/annotations.tmLanguage.json",
+        "injectTo": [
+          "source.ts",
+          "source.tsx",
+          "source.js",
+          "source.jsx"
+        ]
+      }
+    ]
+  },
+  "extensionPack": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "PKief.material-icon-theme"
+  ],
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run compile && npm run lint && npm run format:check",
+    "package": "vsce package",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.96.0",
+    "@vscode/vsce": "^3.2.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.4.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.0.0"
+  }
+}
