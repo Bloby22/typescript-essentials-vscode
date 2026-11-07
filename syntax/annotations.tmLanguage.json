@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "TypeScript Essentials Annotations",
+  "scopeName": "typescript-essentials.annotations",
+  "injectionSelector": "L:comment.line.double-slash, L:comment.block",
+  "patterns": [
+    {
+      "name": "keyword.other.annotation.critical",
+      "match": "\\b(FIXME|BUG|HACK|XXX)\\b(?=\\s*:|\\b)"
+    },
+    {
+      "name": "keyword.other.annotation.warning",
+      "match": "\\b(WARNING|WARN|IMPORTANT|DEPRECATED)\\b(?=\\s*:|\\b)"
+    },
+    {
+      "name": "keyword.other.annotation.todo",
+      "match": "\\b(TODO|OPTIMIZE|REVIEW)\\b(?=\\s*:|\\b)"
+    },
+    {
+      "name": "keyword.other.annotation.note",
+      "match": "\\b(NOTE|INFO)\\b(?=\\s*:|\\b)"
+    }
+  ]
+}
